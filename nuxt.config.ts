@@ -16,7 +16,7 @@ export default defineNuxtConfig({
 
         head: {
             link: [
-                { rel: 'icon', href: '/favicon.png' } // Replace with the path to your favicon file
+                { rel: 'icon', href: '/favicon.png' } 
               ],
             title: 'FilmsLand',
 
