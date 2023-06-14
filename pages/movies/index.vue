@@ -43,7 +43,8 @@
     let genres = ref([]);
     
 
-    //Search Movie
+
+    const moviekey = "0878a4c3be58867711cb8ee6283330bf";
     const searchError = ref(false); 
 
     const searchMovie = async(searchInput) => {
@@ -56,7 +57,7 @@
         if(searchInput !== "") {
 
             searchError.value = false;
-            const { data, error } = await useFetch(`/api/movies/search?searchMovie=${searchInput}`);
+            const { data, error } = await useFetch(`https://api.themoviedb.org/3/search/movie?api_key=${moviekey}&language=en-US&query=${encodeURIComponent(searchInput)}&page=1&include_adult=false`);
             movies.value = data.value
         }
     };

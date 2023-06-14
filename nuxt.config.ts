@@ -16,12 +16,12 @@ export default defineNuxtConfig({
 
         head: {
             link: [
-                { rel: 'icon', href: '/favicon.png' } // Replace with the path to your favicon file
+                { rel: 'icon', href: '/favicon.png' } 
               ],
             title: 'FilmsLand',
 
             meta: [
-                {name: 'description', content:'Entdecken Sie in unserem Online-Shop eine große Auswahl an trendiger und modischer Herren- und Damenbekleidung. Entdecken Sie die neuesten Stile, von lässig bis formell, und kaufen Sie mit Zuversicht hochwertige Produkte ein, die die Essenz zeitgenössischer Mode einfangen'},
+                {name: 'description', content:'Im Filmsland können Sie eine kuratierte Auswahl beliebter Filme erkunden, darunter Blockbuster-Hits und von der Kritik gefeierte Filme. Darüber hinaus können Sie die neuesten Trendfilme entdecken, die in der Unterhaltungsbranche für Aufsehen sorgen. Egal, ob Sie ein Fan von Action, Romantik, Komödie oder einem anderen Genre sind, die Film-App hat für jeden etwas zu bieten'},
                 {name: 'keywords', content:'movies ,Series, news Movies and series'},
                 {name:'author', content:'Salah Trabelsi'}
             ]

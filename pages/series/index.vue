@@ -24,32 +24,41 @@ const series = ref([]);
 
 onMounted(async () => {
   try {
-    const response = await fetch("/api/series");
+    const response = await fetch('https://api.themoviedb.org/3/trending/tv/week?api_key=0878a4c3be58867711cb8ee6283330bf');
     const data = await response.json();
     series.value = data.results;
   } catch (error) {
     console.error(error);
   }
 });
+  
 
 
+    const moviekey = "0878a4c3be58867711cb8ee6283330bf";
 
     //Search Serie
     const searchError = ref(false);
 
     const searchSerie = async (searchInputSerie) => {
-
       if (searchInputSerie === "") {
         searchError.value = true;
         series.value = [];
-      } if(searchInputSerie !== "") {
+      } else if (searchInputSerie !== "") {
         searchError.value = false;
-        const { data, error } = await useFetch(`/api/series/search?searchSerie=${searchInputSerie}`);
-        series.value = data.value
-
+        try {
+          const response = await fetch(
+            `https://api.themoviedb.org/3/search/tv?api_key=${moviekey}&language=en-US&query=${encodeURIComponent(
+              searchInputSerie
+            )}&page=1&include_adult=false`
+          );
+          const data = await response.json();
+          series.value = data.results;
+        } catch (error) {
+          console.error(error);
+        }
       }
-  };
-  
+    };
+
 useHead({
 
   title:'FilmsLand | Series', 

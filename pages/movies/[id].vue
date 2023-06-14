@@ -17,13 +17,15 @@ definePageMeta({
     layout:'custom',
 });
     const route = useRoute();
+    const movieId = ref(route.params.id);
+    const moviekey = ref('0878a4c3be58867711cb8ee6283330bf');
 
     //Fetch Single Movie
-    const { data: movie, error } = await useFetch(`/api/movies/${route.params.id}`);
+    const { data: movie, error } = await useFetch(`https://api.themoviedb.org/3/movie/${movieId.value}?api_key=${moviekey.value}&language=de-DE`);
 
 
     // Fetch Movie Trailer
-    const { data: video } = await useFetch(`/api/movies/trailer/${route.params.id}`);
+    const { data: video } = await useFetch(`https://api.themoviedb.org/3/movie/${movieId.value}/videos?api_key=${moviekey.value}`);
 
     const allvideo = toRaw(video.value.results)
 

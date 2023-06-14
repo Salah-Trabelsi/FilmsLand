@@ -17,12 +17,14 @@ definePageMeta({
 });
 
 const route = useRoute();
+const serieId = ref(route.params.id);
+const moviekey = ref('0878a4c3be58867711cb8ee6283330bf');
 
 
-const { data: serie, error } = await useFetch(`/api/series/${route.params.id}`);
+const { data: serie, error } = await useFetch(`https://api.themoviedb.org/3/tv/${serieId.value}?api_key=${moviekey.value}&language=de-DE/`);
 
 
-const { data: serieVideo, error: serieVideoError } = await useFetch(`/api/series/trailer/${route.params.id}`);
+const { data: serieVideo, error: serieVideoError } = await useFetch(`https://api.themoviedb.org/3/tv/${serieId.value}/videos?api_key=${moviekey.value}&language=en-US`);
   
   const allSerieVideos = toRaw(serieVideo.value.results);
 
